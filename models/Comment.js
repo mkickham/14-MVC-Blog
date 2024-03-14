@@ -7,38 +7,40 @@ class Comment extends Model {}
 Comment.init(
     {
         id: {
-            type: DataTypes.int,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         comment_text: {
-            type: DataTypes.string,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 length: [10]
             },
         },
         user_id: {
-            type: DataTypes.int,
+            type: DataTypes.INTEGER,
             allowNull: false,
+            foreignKey: true,
             references: {
-                mdoel: "user",
+                model: "users",
                 key: "id"
             },
         },
         post_id: {
-            type: DataTypes.int,
+            type: DataTypes.INTEGER,
             allowNull: false,
+            foreignKey: true,
             references: {
-                model: "post",
+                model: "posts",
                 key: "id"
             },
         },
     },
     {
     sequelize,
-    modelName: "comment",
+    modelName: "comments",
     }
 );
 

@@ -12,18 +12,18 @@ class User extends Model {
 User.init(
     {
         id: {
-            type: DataTypes.int,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         username: {
-            type: DataTypes.string,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
         email: {
-            type: DataTypes.string,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
@@ -31,10 +31,10 @@ User.init(
             }
         },
         password: {
-            type: DataTypes.string,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                length: [10]
+                len: [10]
             }
         }
     },
@@ -50,7 +50,7 @@ User.init(
             }
         },
         sequelize,
-        modelName: 'user',
+        modelName: 'users',
     }
 );
 
